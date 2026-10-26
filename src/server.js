@@ -1,7 +1,10 @@
 const { assertLegacyProvider } = require('./crypto/legacy');
-const app = require('./app');
+const { getMasterKey } = require('./crypto/keywrap');
 
 assertLegacyProvider();
+getMasterKey(); // berhenti di awal kalau master key belum diatur
+
+const app = require('./app');
 
 const PORT = process.env.PORT || 3000;
 

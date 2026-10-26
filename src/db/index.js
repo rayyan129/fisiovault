@@ -28,10 +28,21 @@ db.exec(`
     expires_at INTEGER NOT NULL
   );
 
-  -- Kolom metadata enkripsi (IV, auth tag, kunci terbungkus, dst.) ditambah di langkah 4.
+  -- Satu baris = satu dokumen, disimpan 3x (AES, DES, RC4) di storage/<id>.<algo>.
+  -- Kolom *_key berisi kunci per file yang DIBUNGKUS master key (bukan kunci mentah).
+  -- meta = {nama file, mime, sha256 plaintext} terenkripsi AES-GCM.
   CREATE TABLE IF NOT EXISTS files (
     id         TEXT PRIMARY KEY,
     user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    kind       TEXT NOT NULL CHECK (kind IN ('upload', 'form')),
+    size       INTEGER NOT NULL,
+    meta       BLOB NOT NULL,
+    aes_key    BLOB NOT NULL,
+    aes_iv     BLOB NOT NULL,
+    aes_tag    BLOB NOT NULL,
+    des_key    BLOB NOT NULL,
+    des_iv     BLOB NOT NULL,
+    rc4_key    BLOB NOT NULL,
     created_at INTEGER NOT NULL
   );
   CREATE INDEX IF NOT EXISTS idx_files_user ON files(user_id);

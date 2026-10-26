@@ -4,8 +4,8 @@
   "description": "Penyimpanan dokumen fisioterapi pasien terenkripsi (AES, DES, RC4)",
   "main": "src/server.js",
   "scripts": {
-    "start": "node --openssl-legacy-provider src/server.js",
-    "dev": "node --openssl-legacy-provider --watch src/server.js",
+    "start": "node --env-file-if-exists=.env --openssl-legacy-provider src/server.js",
+    "dev": "node --env-file-if-exists=.env --openssl-legacy-provider --watch src/server.js",
     "test": "node --openssl-legacy-provider --test \"test/**/*.test.js\""
   },
   "repository": {
@@ -23,6 +23,7 @@
   "dependencies": {
     "argon2": "^0.45.1",
     "better-sqlite3": "^13.0.3",
+    "busboy": "^1.6.0",
     "cookie-parser": "^1.4.7",
     "express": "^5.3.0"
   },

@@ -111,7 +111,10 @@ test('kepemilikan file: pemilik boleh, user lain dapat 404', async () => {
   const cookieA = await registerAndLogin('pemilik_a');
   const cookieB = await registerAndLogin('penyusup_b');
   const userA = db.prepare('SELECT id FROM users WHERE username = ?').get('pemilik_a');
-  db.prepare('INSERT INTO files (id, user_id, created_at) VALUES (?, ?, ?)').run('file-a', userA.id, Date.now());
+  db.prepare(
+    `INSERT INTO files (id, user_id, kind, size, meta, aes_key, aes_iv, aes_tag, des_key, des_iv, rc4_key, created_at)
+     VALUES (?, ?, 'upload', 0, x'', x'', x'', x'', x'', x'', x'', ?)`
+  ).run('file-a', userA.id, Date.now());
 
   assert.strictEqual((await get('/test-files/file-a', cookieA)).status, 200);
   assert.strictEqual((await get('/test-files/file-a', cookieB)).status, 404); // bukan 403
