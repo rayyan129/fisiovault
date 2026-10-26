@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FisioVault</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <!-- Halaman login / daftar -->
+  <main id="auth-view" class="auth" hidden>
+    <div class="auth-card">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🛡️</span>
+        <h1>FisioVault</h1>
+      </div>
+      <p class="muted">Simpan dokumen fisioterapi Anda dengan aman, bawa ke faskes mana pun.</p>
+
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-mode="login" role="tab">Masuk</button>
+        <button type="button" class="tab" data-mode="register" role="tab">Daftar</button>
+      </div>
+
+      <form id="auth-form" class="stack">
+        <label>Username
+          <input name="username" autocomplete="username" required minlength="3" maxlength="32"
+                 pattern="[a-zA-Z0-9_.]{3,32}" title="3-32 karakter: huruf, angka, _ atau .">
+        </label>
+        <label>Password
+          <input name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128">
+        </label>
+        <p id="auth-hint" class="hint" hidden>Minimal 8 karakter.</p>
+        <button type="submit" class="btn primary" id="auth-submit">Masuk</button>
+        <p id="auth-msg" class="msg" role="alert"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Dashboard pasien -->
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <div class="brand small">
+        <span class="brand-icon" aria-hidden="true">🛡️</span>
+        <strong>FisioVault</strong>
+      </div>
+      <div class="user">
+        <span id="username" class="muted"></span>
+        <button type="button" class="btn ghost" id="logout">Keluar</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hello">
+        <h2>Dokumen Terapi Saya</h2>
+        <p class="muted">Setiap dokumen dienkripsi dengan AES-256, DES, dan RC4 sebelum disimpan.</p>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="action" data-panel="upload-panel">
+          <span class="action-icon" aria-hidden="true">📤</span>
+          <span><strong>Unggah dokumen</strong><small>KTP, BPJS, rujukan, rontgen, video</small></span>
+        </button>
+        <button type="button" class="action" data-panel="form-panel">
+          <span class="action-icon" aria-hidden="true">📝</span>
+          <span><strong>Isi data pribadi</strong><small>Nama, BPJS, diagnosis</small></span>
+        </button>
+      </div>
+
+      <section id="upload-panel" class="card panel" hidden>
+        <h3>Unggah dokumen</h3>
+        <form id="upload-form" class="stack">
+          <label class="drop">
+            <input type="file" name="file" accept=".jpg,.jpeg,.png,.pdf,.docx,.mp4" required>
+            <span>Pilih file JPG, PNG, PDF, DOCX, atau MP4 (maks. 1 GB)</span>
+          </label>
+          <div class="progress" hidden><div class="bar"></div></div>
+          <button type="submit" class="btn primary">Enkripsi &amp; simpan</button>
+          <p class="msg" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="form-panel" class="card panel" hidden>
+        <h3>Data pribadi</h3>
+        <form id="profile-form" class="grid">
+          <label>Nama lengkap <input name="nama" required maxlength="100"></label>
+          <label>Tanggal lahir <input name="tanggal_lahir" type="date" required></label>
+          <label>No. HP <input name="no_hp" inputmode="tel" required pattern="\+?[0-9]{8,15}" placeholder="081234567890"></label>
+          <label>No. BPJS <input name="no_bpjs" inputmode="numeric" required pattern="[0-9]{13}" placeholder="13 digit"></label>
+          <label class="full">Alamat <textarea name="alamat" required maxlength="300" rows="2"></textarea></label>
+          <label class="full">Diagnosis <textarea name="diagnosis" required maxlength="500" rows="2"></textarea></label>
+          <div class="full stack">
+            <button type="submit" class="btn primary">Enkripsi &amp; simpan</button>
+            <p class="msg" role="alert"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-head">
+          <h3>Semua dokumen</h3>
+          <label class="algo">Unduh dengan
+            <select id="algo">
+              <option value="aes">AES-256-GCM (disarankan)</option>
+              <option value="des">DES-CBC (perbandingan)</option>
+              <option value="rc4">RC4 (perbandingan)</option>
+            </select>
+          </label>
+        </div>
+        <ul id="file-list" class="files"></ul>
+        <p id="empty" class="empty muted" hidden>Belum ada dokumen. Mulai dengan mengunggah atau mengisi data pribadi.</p>
+      </section>
+    </main>
+  </div>
+
+  <template id="file-item">
+    <li class="file">
+      <span class="file-icon" aria-hidden="true"></span>
+      <div class="file-info">
+        <strong class="file-name"></strong>
+        <small class="muted file-meta"></small>
+      </div>
+      <a class="btn small download">Unduh</a>
+      <button type="button" class="btn small danger delete">Hapus</button>
+    </li>
+  </template>
+</body>
+</html>
