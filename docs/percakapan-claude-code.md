@@ -4,6 +4,11 @@ File ini adalah transkrip percakapan antara anggota kelompok dan asisten AI **Cl
 
 Isinya: pesan pengguna, jawaban asisten, dan daftar perintah/tool yang dijalankan asisten (ditandai 🔧). Proses berpikir internal model, isi keluaran tool, dan pesan sistem tidak disertakan. Nomor telepon dan email disamarkan.
 
+Percakapan AI lain yang juga dipakai selama pengerjaan:
+
+- [Percakapan ChatGPT](https://chatgpt.com/share/6adf7731-ad74-83ec-a639-1f1e0ea17cc7?ogimg=plain)
+- [Percakapan Claude (claude.ai)](https://claude.ai/share/b238a9c7-c48e-433f-8a2a-21ffb23a5d5a)
+
 ---
 
 ## 👤 Pengguna (16:15 UTC)
