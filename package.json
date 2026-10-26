@@ -1,0 +1,28 @@
+{
+  "name": "fisiovault",
+  "version": "1.0.0",
+  "description": "Penyimpanan dokumen fisioterapi pasien terenkripsi (AES, DES, RC4)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayyan129/fisiovault.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rayyan129/fisiovault/issues"
+  },
+  "homepage": "https://github.com/rayyan129/fisiovault#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

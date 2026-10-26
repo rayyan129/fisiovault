@@ -1,0 +1,26 @@
+# Dependensi
+node_modules/
+
+# Rahasia & konfigurasi lokal
+.env
+.env.*
+!.env.example
+
+# File terenkripsi milik pengguna (tidak boleh masuk repo)
+storage/
+
+# Database SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Log & file sementara
+*.log
+npm-debug.log*
+tmp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
