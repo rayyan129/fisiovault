@@ -4,9 +4,9 @@
   "description": "Penyimpanan dokumen fisioterapi pasien terenkripsi (AES, DES, RC4)",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
-    "test": "node --test"
+    "start": "node --openssl-legacy-provider src/server.js",
+    "dev": "node --openssl-legacy-provider --watch src/server.js",
+    "test": "node --openssl-legacy-provider --test"
   },
   "repository": {
     "type": "git",

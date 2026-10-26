@@ -1,4 +1,7 @@
+const { assertLegacyProvider } = require('./crypto/legacy');
 const app = require('./app');
+
+assertLegacyProvider();
 
 const PORT = process.env.PORT || 3000;
 
