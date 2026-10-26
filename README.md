@@ -5,7 +5,7 @@ Aplikasi web tempat pasien fisioterapi menyimpan sendiri dokumen terapinya
 terenkripsi. Setiap dokumen dienkripsi dengan **AES-256-GCM, DES-CBC, dan RC4**
 untuk dibandingkan kinerja dan keamanannya.
 
-Tugas kelompok mata kuliah Kriptografi, Institut Teknologi Sepuluh Nopember.
+Tugas kelompok mata kuliah Keamanan Informasi, Institut Teknologi Sepuluh Nopember.
 
 | Nama | NRP |
 |---|---|
