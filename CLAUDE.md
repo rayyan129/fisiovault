@@ -1,6 +1,6 @@
 # FisioVault — konteks project
 
-Tugas kelompok (4 orang) mata kuliah Kriptografi, ITS.
+Tugas kelompok (4 orang) mata kuliah Keamanan Informasi, ITS.
 Aplikasi web tempat **pasien fisioterapi** menyimpan sendiri dokumen terapinya
 supaya bisa dibawa saat pindah faskes. Setiap data disimpan terenkripsi dengan
 **AES, DES, dan RC4** (ketiganya, untuk dibandingkan).
