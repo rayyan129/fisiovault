@@ -1,0 +1,5 @@
+cipher,mode,fileMB,encPeakMB,decPeakMB
+"AES-256-GCM","stream (dipakai aplikasi)",256,33.598,18.484
+"DES-CBC","stream (dipakai aplikasi)",256,33.715,34.938
+"RC4","stream (dipakai aplikasi)",256,34.430,36.906
+"AES-256-GCM","buffer utuh (pembanding)",256,768.094,512.012

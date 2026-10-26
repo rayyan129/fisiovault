@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --env-file-if-exists=.env --openssl-legacy-provider src/server.js",
     "dev": "node --env-file-if-exists=.env --openssl-legacy-provider --watch src/server.js",
-    "test": "node --openssl-legacy-provider --test \"test/**/*.test.js\""
+    "test": "node --openssl-legacy-provider --test \"test/**/*.test.js\"",
+    "bench": "node --openssl-legacy-provider --expose-gc bench/benchmark.js"
   },
   "repository": {
     "type": "git",

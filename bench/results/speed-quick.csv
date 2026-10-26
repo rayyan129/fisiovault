@@ -1,0 +1,13 @@
+cipher,size,bytes,runs,encMedianMs,encSdMs,decMedianMs,decSdMs,encMBps,decMBps,overheadBytes,overheadPct,integrity
+"AES-256-GCM","1 KB (form data pribadi)",1024,200,0.151,0.158,0.138,0.226,6.489,7.095,28,2.734,"true"
+"DES-CBC","1 KB (form data pribadi)",1024,200,0.127,0.241,0.118,0.076,7.686,8.290,16,1.563,"true"
+"RC4","1 KB (form data pribadi)",1024,200,0.081,0.044,0.081,0.336,12.034,12.012,0,0,"true"
+"AES-256-GCM","100 KB (scan KTP/BPJS)",102400,21,0.165,0.018,0.160,0.014,590.782,609.970,28,0.027,"true"
+"DES-CBC","100 KB (scan KTP/BPJS)",102400,21,1.724,0.015,1.517,0.012,56.642,64.375,16,0.016,"true"
+"RC4","100 KB (scan KTP/BPJS)",102400,21,0.446,0.041,0.453,0.071,218.911,215.672,0,0,"true"
+"AES-256-GCM","1 MB (PDF rujukan)",1048576,5,1.040,0.141,1.086,0.173,961.076,920.556,28,0.003,"true"
+"DES-CBC","1 MB (PDF rujukan)",1048576,5,19.570,1.108,16.107,1.492,51.098,62.083,16,0.002,"true"
+"RC4","1 MB (PDF rujukan)",1048576,5,4.010,0.123,3.953,0.072,249.389,252.998,0,0,"true"
+"AES-256-GCM","10 MB (rontgen/DOCX besar)",10485760,5,9.049,3.312,9.707,3.212,1105.119,1030.174,28,0.000,"true"
+"DES-CBC","10 MB (rontgen/DOCX besar)",10485760,5,179.453,93.524,238.506,189.786,55.725,41.928,16,0.000,"true"
+"RC4","10 MB (rontgen/DOCX besar)",10485760,5,46.741,8.003,50.041,9.713,213.946,199.835,0,0,"true"
