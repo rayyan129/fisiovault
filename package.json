@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node --openssl-legacy-provider src/server.js",
     "dev": "node --openssl-legacy-provider --watch src/server.js",
-    "test": "node --openssl-legacy-provider --test"
+    "test": "node --openssl-legacy-provider --test \"test/**/*.test.js\""
   },
   "repository": {
     "type": "git",
